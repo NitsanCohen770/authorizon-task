@@ -57,7 +57,7 @@ export const AdminPanel = styled.div`
   top: 0;
   top: 72px;
   background: #373f68;
-  > div:first-child {
+  > div:last-child {
     margin-left: auto;
     margin-right: 20px;
   }

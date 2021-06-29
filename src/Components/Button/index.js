@@ -2,9 +2,14 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './styles';
 
-const Button = ({ children, width, height }) => {
+const Button = ({ children, width, height, backgroundColor, ...props }) => {
   return (
-    <StyledButton width={width} height={height}>
+    <StyledButton
+      {...props}
+      width={width}
+      height={height}
+      backgroundColor={backgroundColor}
+    >
       {children}
     </StyledButton>
   );

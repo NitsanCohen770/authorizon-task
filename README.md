@@ -44,7 +44,6 @@ First I built the front-end part
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-<!-- - [Next.js](https://nextjs.org/) - React framework -->
 - [Styled Components](https://styled-components.com/) - For styles
 
 ### What I learned
@@ -57,8 +56,7 @@ I would like to upgrade the app the serverless using AWS services and Next.js
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Auth0 offical docs](https://auth0.com/docs/) - This helped me for integrating the Auth0 in the React app. I really liked the straight forward tutorials with explained examples.
 
 ## Author
 

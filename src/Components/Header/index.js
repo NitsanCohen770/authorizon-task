@@ -1,29 +1,36 @@
 import React from 'react';
-import urlPropType from 'url-prop-type';
 import { AdminPanel, HeaderWrapper } from './styles';
-import ProfileImage from '../../profile.jpg';
 import Button from '../Button';
-const Header = ({ userImageUrl }) => {
+import { Avatar } from '@material-ui/core';
+import { useAuth0 } from '@auth0/auth0-react';
+
+const Header = () => {
+  const { user, isAuthenticated, logout } = useAuth0();
+
   return (
     <>
       <HeaderWrapper>
         <div>
           Authorizon Assignment <div>Live Chat Application</div>
         </div>
-
-        <img src={ProfileImage} alt="Your profile" />
+        <Avatar
+          style={{ marginLeft: 'auto', marginRight: '20px' }}
+          alt="Cindy Baker"
+          src={
+            user?.picture ||
+            'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
+          }
+        />
       </HeaderWrapper>
       <AdminPanel>
-        <Button width="134px" height="40px">
-          + Add New Filter
-        </Button>
+        {isAuthenticated && (
+          <Button width="134px" height="40px">
+            + Add New Filter
+          </Button>
+        )}
       </AdminPanel>
     </>
   );
-};
-
-Header.propTypes = {
-  userImageUrl: urlPropType,
 };
 
 export default Header;
