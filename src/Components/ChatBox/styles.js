@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ChatBoxWrapper = styled.div`
+  position: relative;
   width: 327px;
   height: 460px;
   background: #ffffff;
