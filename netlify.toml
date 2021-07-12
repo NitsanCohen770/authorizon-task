@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/callback"
+  to = "https://authrizon.netlify.app/"
+  status = 200
