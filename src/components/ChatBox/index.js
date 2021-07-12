@@ -41,7 +41,7 @@ const ChatBox = () => {
             src={WhoAreYou}
             alt='Person looking at you with a loupe to check who are you'
           />
-          <div>Do I know you from some where?</div>
+          <div>Do I know yo from some where?</div>
           <div>
             Already have an account? Please press the login button and proceed
             with the login process. If you don't have an account please press on
