@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { SubmitButtonWrapper } from './styles';
 import { FaCaretSquareRight } from 'react-icons/fa';
 const SubmitButton = ({ ...props }) => {
@@ -9,7 +8,5 @@ const SubmitButton = ({ ...props }) => {
     </SubmitButtonWrapper>
   );
 };
-
-SubmitButton.propTypes = {};
 
 export default SubmitButton;

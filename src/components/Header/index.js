@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AdminPanel, HeaderWrapper } from './styles';
 import Button from '../Button';
 import { Avatar } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
 import useChat from '../../hooks/useChat';
+import { StyledUserInput } from '../UserInput';
 
 const Header = () => {
   const { user, isAuthenticated, logout } = useAuth0();
-  const { filterMessages } = useChat();
+  const [newFilter, setNewFilter] = useState('Type a filter');
+  const { filterMessages, adminValidator, isAdmin } = useChat();
+
+  const filterMessagesHandler = () => {
+    filterMessages(newFilter);
+    setNewFilter('');
+  };
 
   return (
     <>
@@ -27,15 +34,26 @@ const Header = () => {
       <AdminPanel>
         {isAuthenticated && (
           <>
-            <Button
-              width='134px'
-              height='40px'
-              onClick={() => filterMessages('dont')}>
+            <Button width='134px' height='40px' onClick={filterMessagesHandler}>
               + Add New Filter
             </Button>
+
             <Button width='134px' height='40px'>
               + Add A New Admin
             </Button>
+
+            <StyledUserInput
+              value={newFilter}
+              onChange={event => setNewFilter(event.target.value)}
+              onFocus={() => setNewFilter('')}
+            />
+
+            {/* <Button
+              onClick={() => adminValidator(user.email)}
+              width='134px'
+              height='40px'>
+              Admin entrance
+            </Button> */}
           </>
         )}
       </AdminPanel>

@@ -2,3 +2,6 @@
   from = "/callback"
   to = "https://authrizon.netlify.app/"
   status = 200
+
+  [[plugins]]
+  package = "netlify-plugin-auth0-patch-urls"

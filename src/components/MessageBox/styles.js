@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const StyledBox = styled.div`
-  max-width: 150px;
+  width: fit-content;
+  word-break: break-all;
   padding: 10px;
   margin-top: 10px;
   font-family: Jost;
   height: fit-content;
+  text-align: left;
   border-radius: 10px;
   background: ${props => (props.isOwnedByCurrentUser ? '#eee5f4' : '#f5f3f7')};
   border-radius: 10px 10px 4px 10px;

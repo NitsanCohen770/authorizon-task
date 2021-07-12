@@ -11,7 +11,8 @@ const Box = ({ children, isOwnedByCurrentUser }) => {
 };
 
 Box.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.array,
+  isOwnedByCurrentUser: PropTypes.bool,
 };
 
 export default Box;

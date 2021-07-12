@@ -4,12 +4,13 @@ export const StyledUserInput = styled.input`
   position: absolute;
   font-family: Jost;
   bottom: 10px;
-  right: 12px;
+  right: ${props => (props.isChatInput ? '12px' : '')};
+  left: ${props => (props.isChatInput ? '' : '305px')};
   border: 1px solid rgba(62, 39, 83, 0.0509178);
   background: #f5f3f7;
   border-radius: 16.9544px;
-  width: 90%;
-  height: 10%;
+  width: ${props => (props.isChatInput ? '90%' : '100px')};
+  height: ${props => (props.isChatInput ? '10%' : '30px')};
   &:focus {
     outline: none;
   }
