@@ -9,26 +9,25 @@ import { StyledUserInput } from '../UserInput';
 import MessageBox from '../MessageBox';
 import SubmitButton from '../SubmitButton';
 import { ChatArea } from '../ChatArea';
+import useChat from '../../hooks/useChat';
 import UsersBar from '../UsersBar';
 
 const ChatBox = () => {
   const [messageText, setMessageText] = useState('');
-  const [receivedMessages, setMessages] = useState([]);
+  const { messages, sendMessage } = useChat();
   const messageTextIsEmpty = messageText.trim().length === 0;
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
   const ref = useRef();
-  console.log(receivedMessages);
   const sendChatMessage = messageText => {
-    setMessages([...receivedMessages, messageText]);
+    sendMessage(messageText);
     setMessageText('');
   };
 
   const handleFormSubmission = event => {
-    // if (event.charCode !== 13 || messageTextIsEmpty) {
-    //   return;
-    // }
     event.preventDefault();
-    console.log('je');
+    if (messageTextIsEmpty) {
+      return;
+    }
     sendChatMessage(messageText);
   };
 
@@ -59,8 +58,12 @@ const ChatBox = () => {
       ) : (
         <>
           <ChatArea>
-            {receivedMessages.map(message => (
-              <MessageBox>{message}</MessageBox>
+            {messages.map(message => (
+              <MessageBox
+                key={message.id}
+                isOwnedByCurrentUser={message.isOwnedByCurrentUser}>
+                {message.body}
+              </MessageBox>
             ))}
           </ChatArea>
           <form>

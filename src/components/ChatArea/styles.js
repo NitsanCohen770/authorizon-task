@@ -5,7 +5,6 @@ export const ChatArea = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  overflow-x: none;
   top: 45px;
   left: 15px;
   width: 300px;

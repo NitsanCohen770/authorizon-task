@@ -49,7 +49,7 @@ export const HeaderWrapper = styled.div`
 
 export const AdminPanel = styled.div`
   position: absolute;
-  display: flex;
+  display: ${props => (props.isAdminUser ? 'none' : 'inline')};
   align-items: center;
   height: 56px;
   left: 0;
@@ -57,8 +57,9 @@ export const AdminPanel = styled.div`
   top: 0;
   top: 72px;
   background: #373f68;
-  > div:last-child {
-    margin-left: auto;
-    margin-right: 20px;
+  > div {
+    margin-top: 8px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 `;

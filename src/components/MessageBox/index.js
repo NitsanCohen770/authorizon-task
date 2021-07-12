@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledBox } from './styles';
 
-const Box = ({ children }) => {
-  return <StyledBox isUser>{children}</StyledBox>;
+const Box = ({ children, isOwnedByCurrentUser }) => {
+  return (
+    <StyledBox isOwnedByCurrentUser={isOwnedByCurrentUser}>
+      {children}
+    </StyledBox>
+  );
 };
 
 Box.propTypes = {
