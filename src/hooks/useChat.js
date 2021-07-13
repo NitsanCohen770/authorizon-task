@@ -4,9 +4,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const NEW_CHAT_MESSAGE_EVENT = 'newChatMessage';
 const NEW_FILTER_QUERY_EVENT = 'newFilterAdded';
-const ADMIN_USER_VALIDATE = 'validateUserAdmin';
 const IS_ADMIN_USER = 'isAdminUser';
-
+const ADMIN_INVITATION_ACCEPTED = 'acceptedInvitation';
+const ADMIN_INVITATION_EVENT = 'inviteAdmin';
 const SOCKET_SERVER_URL = 'http://localhost:5000';
 
 const useChat = () => {
@@ -15,7 +15,7 @@ const useChat = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [token, setToken] = useState('');
   const socketRef = useRef();
-  console.log(isAdmin);
+
   const fetchToken = useCallback(async () => {
     let response = await getAccessTokenSilently();
     setToken(response);
@@ -26,9 +26,13 @@ const useChat = () => {
       return;
     }
     fetchToken();
-    console.log(token);
+
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
       query: { token, userEmail: user.email },
+    });
+
+    socketRef.current.on(IS_ADMIN_USER, isAdminUser => {
+      setIsAdmin(isAdminUser);
     });
 
     socketRef.current.on(NEW_CHAT_MESSAGE_EVENT, messages => {
@@ -38,11 +42,6 @@ const useChat = () => {
           isOwnedByCurrentUser: message.senderId === user.email,
           id: message._id,
         };
-      });
-
-      socketRef.current.on(IS_ADMIN_USER, isAdminUser => {
-        console.log(isAdminUser);
-        setIsAdmin(isAdminUser);
       });
 
       setMessages(incomingMessages);
@@ -73,7 +72,22 @@ const useChat = () => {
     });
   };
 
-  return { messages, sendMessage, filterMessages, isAdmin };
+  const inviteNewAdminUser = userEmail => {
+    socketRef.current.emit(ADMIN_INVITATION_EVENT, userEmail);
+  };
+
+  const invitationAcceptation = () => {
+    socketRef.current.emit(ADMIN_INVITATION_ACCEPTED);
+  };
+
+  return {
+    messages,
+    sendMessage,
+    filterMessages,
+    isAdmin,
+    inviteNewAdminUser,
+    invitationAcceptation,
+  };
 };
 
 export default useChat;

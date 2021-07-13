@@ -7,13 +7,19 @@ import useChat from '../../hooks/useChat';
 import { StyledUserInput } from '../UserInput';
 
 const Header = () => {
-  const { user, isAuthenticated, logout } = useAuth0();
-  const [newFilter, setNewFilter] = useState('Type a filter');
-  const { filterMessages, adminValidator, isAdmin } = useChat();
+  const { user, isAuthenticated } = useAuth0();
+  const [newFilterOrUser, setNewFilterOrUser] = useState('Filter or User');
+  const { filterMessages, inviteNewAdminUser, isAdmin, invitationAcceptation } =
+    useChat();
 
   const filterMessagesHandler = () => {
-    filterMessages(newFilter);
-    setNewFilter('');
+    filterMessages(newFilterOrUser);
+    setNewFilterOrUser('');
+  };
+
+  const inviteAdminHandler = () => {
+    inviteNewAdminUser(newFilterOrUser);
+    setNewFilterOrUser('');
   };
 
   return (
@@ -23,6 +29,7 @@ const Header = () => {
           Authorizon Assignment <div>Live Chat Application</div>
         </div>
         <Avatar
+          onClick={invitationAcceptation}
           style={{ marginLeft: 'auto', marginRight: '20px' }}
           alt='Cindy Baker'
           src={
@@ -32,28 +39,21 @@ const Header = () => {
         />
       </HeaderWrapper>
       <AdminPanel>
-        {isAuthenticated && (
+        {isAuthenticated && isAdmin && (
           <>
             <Button width='134px' height='40px' onClick={filterMessagesHandler}>
               + Add New Filter
             </Button>
 
-            <Button width='134px' height='40px'>
+            <Button width='134px' height='40px' onClick={inviteAdminHandler}>
               + Add A New Admin
             </Button>
 
             <StyledUserInput
-              value={newFilter}
-              onChange={event => setNewFilter(event.target.value)}
-              onFocus={() => setNewFilter('')}
+              value={newFilterOrUser}
+              onChange={event => setNewFilterOrUser(event.target.value)}
+              onFocus={() => setNewFilterOrUser('')}
             />
-
-            {/* <Button
-              onClick={() => adminValidator(user.email)}
-              width='134px'
-              height='40px'>
-              Admin entrance
-            </Button> */}
           </>
         )}
       </AdminPanel>

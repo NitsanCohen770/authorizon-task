@@ -5,7 +5,7 @@ import WhoAreYou from '../../assets/SVG/who-are-you.svg';
 import Button from '../Button';
 
 const LoginBox = () => {
-  const { user, isLoading, isAuthenticated, loginWithRedirect } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <ChatBoxWrapper>
