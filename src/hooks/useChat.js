@@ -72,12 +72,8 @@ const useChat = () => {
       keywords: filterQuery,
     });
   };
-  const adminValidator = userEmail => {
-    socketRef.current.emit(ADMIN_USER_VALIDATE, {
-      userEmail,
-    });
-  };
-  return { messages, sendMessage, filterMessages, adminValidator, isAdmin };
+
+  return { messages, sendMessage, filterMessages, isAdmin };
 };
 
 export default useChat;

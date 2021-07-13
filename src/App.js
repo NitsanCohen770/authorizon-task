@@ -14,7 +14,6 @@ function App() {
   return (
     <Layout>
       {isAuthenticated && <Redirect to='/chat' />}
-
       <Switch>
         <Route path='/' exact component={LoginBox} />
         <Route path='/chat' component={ChatBox} />
