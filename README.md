@@ -14,6 +14,15 @@
 
 ## Overview
 
+The Architecture of the app is pretty simple and looks like this:
+
+![](./chatArch.jpg)
+
+In order to run locally:
+git clone https://github.com/NitsanCohen770/authorizon-task
+
+npm install && npm start
+
 ### The challenge
 
 Users should be able to:
@@ -22,8 +31,8 @@ Users should be able to:
 - See all messages of other users in realtime.
 - Admin users should be able to filter messages by choosing a filter.
 - If a message if filtered, it is only visible to the Admin user.
-  -If a user uses a filtered word, he will get a message from the system informing him that the word is not allowed.
-  -An Admin user can invite other users to be Admins as well.
+- If a user uses a filtered word, he will get a message from the system informing him that the word is not allowed.
+- An Admin user can invite other users to be Admins as well.
 
 ### Screenshot
 
