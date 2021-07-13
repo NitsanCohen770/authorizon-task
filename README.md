@@ -22,17 +22,18 @@ Users should be able to:
 - See all messages of other users in realtime.
 - Admin users should be able to filter messages by choosing a filter.
 - If a message if filtered, it is only visible to the Admin user.
+  -If a user uses a filtered word, he will get a message from the system informing him that the word is not allowed.
+  -An Admin user can invite other users to be Admins as well.
 
 ### Screenshot
 
-<!-- ![](./screenshot.jpg) -->
+![](./screenshot.png)
 
 -
 
 ### Links
 
-<!-- - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com) -->
+- Live Site URL: [See Live](https://authorizon.netlify.app/)
 
 ## My process
 
@@ -50,6 +51,8 @@ First I built the front-end part
 
 It was very nice to get familiar with the Auth0 service. Integrating it to the app was a breeze thanks to the great official docs they have.
 
+Besides that It was really fun getting involved with the auth
+
 ### Continued development
 
 I would like to upgrade the app the serverless using AWS services and Next.js
@@ -64,4 +67,4 @@ I would like to upgrade the app the serverless using AWS services and Next.js
 
 ## Acknowledgments
 
-I would like to thank Authrizon staff for giving me this interesting assignment. I learned a lot from it and it improved my skills as a developer.
+I would like to thank Authorizon staff for giving me this interesting assignment. I learned a lot from it and it improved my skills as a developer.
