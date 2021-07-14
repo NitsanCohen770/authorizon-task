@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/callback"
-  to = "https://authrizon.netlify.app/"
+  to = "https://authrizon.netlify.app/chat"
   status = 200
 
   [[plugins]]
