@@ -7,7 +7,7 @@ const NEW_FILTER_QUERY_EVENT = 'newFilterAdded';
 const IS_ADMIN_USER = 'isAdminUser';
 const ADMIN_INVITATION_ACCEPTED = 'acceptedInvitation';
 const ADMIN_INVITATION_EVENT = 'inviteAdmin';
-const SOCKET_SERVER_URL = 'http://localhost:5000';
+const SOCKET_SERVER_URL = 'https://auth-assignment.herokuapp.com/';
 
 const useChat = () => {
   const [messages, setMessages] = useState([]);
