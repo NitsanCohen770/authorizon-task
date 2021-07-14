@@ -5,3 +5,9 @@
 
   [[plugins]]
   package = "netlify-plugin-auth0-patch-urls"
+  [build]
+    functions = "functions"
+    publish = "public/"
+    command = "npm run start"
+[dev]
+  jwtSecret = "test"
