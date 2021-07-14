@@ -46,7 +46,35 @@ Users should be able to:
 
 ## My process
 
-First I built the front-end part
+The app was built with create-react-app and a node.js server running a socket.io instance.
+I used MongoDB (with mongoose) as the database.
+
+You can have a look at the architecture of the app in the readme file on github.
+
+The front-end was built with a mobile-only view using styled-components (no css libraries).
+I implemented to auth0 service as you requested. It is also worth mentioning that the /chat route is a protected route which means that if a user tries to enter this route he will be automatically redirected to the login interface.
+
+Most of the chat logic is in the "useChat" hook in the hooks directory.
+
+Upon every user connection to the backend a middleware is activated to check if the user is an admin user or not and then store the users' email along with his socket session id.
+
+The Admins and users are then divided to 2 socket.io rooms - Admins room and Users room (will be used of course when emitting the filtered and unfiltered messages).
+
+I chose to filter the messages with a database query. I think it makes more sense to filter the messages if you are querying the database anyway to get the messages.
+
+A user will receive a private message if he uses a word that is on the filter list.
+
+You can add a new filter as an admin if you fill the input box (visible only for admins) and click Add filter button.
+
+You can invite a user to be an admin if you fill his details (email) in the input box and press the Add admin button. The user invited will be notified that he has been invited and will be asked to press on his avatar if he agrees.
+
+I did not use a React form for that because it seemed redundant. If the desire was to check my form skills, I can tell you that I am usually using React-hook-form which is great for handling forms.
+
+issues:
+First issue is with the validation of the token (server side) I did find a wonderful library (socketio-jwt) that is supposed to do the job and validate the token server but it didn't work for me. I didn't want to postpone the delivery of the assignment so for now I left like that (without validation). I did leave some of the code commented out so you can check it out.
+
+There is another issue with storing the latest socket session id. I think it has to do with the cleanup function I am returning from the useEffect hook.
+This issue does not have a lot of impact on the functionality of the app. The only problem is that sometimes the user will not see the invitation sent from the admin (because it is sent via session id).
 
 ### Built with
 
