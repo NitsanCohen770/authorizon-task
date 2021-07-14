@@ -13,7 +13,7 @@ ReactDOM.render(
       <Auth0ProviderWithHistory
         domain={domain}
         clientId={clientId}
-        redirectUri={window.location.origin + '/chat'}
+        redirectUri={window.location.origin + '/callback'}
         audience={audience}>
         <App />
       </Auth0ProviderWithHistory>
