@@ -13,6 +13,9 @@ const Header = () => {
     useChat();
 
   const filterMessagesHandler = () => {
+    if (newFilterOrUser === '') {
+      return setNewFilterOrUser('No empty strings');
+    }
     filterMessages(newFilterOrUser);
     setNewFilterOrUser('');
   };
