@@ -10,9 +10,11 @@ export const StyledButton = styled.div`
   border-radius: 10px;
   height: ${props => props.height};
   width: ${props => props.width};
-  font-family: Jost;
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
   line-height: 19px;
+  &:hover {
+    opacity: 0.8;
+  }
 `;

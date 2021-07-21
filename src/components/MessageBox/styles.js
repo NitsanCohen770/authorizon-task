@@ -5,7 +5,6 @@ export const StyledBox = styled.div`
   word-break: break-all;
   padding: 10px;
   margin-top: 10px;
-  font-family: Jost;
   height: fit-content;
   text-align: left;
   border-radius: 10px;

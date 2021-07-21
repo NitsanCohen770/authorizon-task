@@ -37,7 +37,7 @@ const ChatBox = () => {
   const handleFormSubmission = event => {
     event.preventDefault();
     if (messageTextIsEmpty) {
-      return;
+      return setMessageText('Please enter valid text message');
     }
     sendChatMessage(messageText);
   };
@@ -63,6 +63,7 @@ const ChatBox = () => {
             isChatInput
             value={messageText}
             onChange={event => setMessageText(event.target.value)}
+            onFocus={() => setMessageText('')}
           />
           <SubmitButton onClick={event => handleFormSubmission(event)} />
         </form>

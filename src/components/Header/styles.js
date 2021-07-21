@@ -17,7 +17,6 @@ export const HeaderWrapper = styled.div`
   > div:first-child {
     display: inline;
     margin-left: 24px;
-    font-family: Jost;
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
@@ -26,7 +25,6 @@ export const HeaderWrapper = styled.div`
     color: #ffffff;
 
     > div:first-child {
-      font-family: Jost;
       font-style: normal;
       font-weight: 500;
       font-size: 13px;
@@ -49,7 +47,7 @@ export const HeaderWrapper = styled.div`
 
 export const AdminPanel = styled.div`
   position: absolute;
-  display: ${props => (props.isAdminUser ? 'none' : 'inline')};
+  display: inline;
   align-items: center;
   height: 56px;
   left: 0;

@@ -18,6 +18,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
 };
 
 export default Button;

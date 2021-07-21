@@ -12,6 +12,9 @@ const Header = () => {
   const { filterMessages, inviteNewAdminUser, isAdmin, invitationAcceptation } =
     useChat();
 
+  const DEFAULT_AVATAR_URL =
+    'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60';
+
   const filterMessagesHandler = () => {
     if (newFilterOrUser === '') {
       return setNewFilterOrUser('No empty strings');
@@ -26,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <>
+    <header>
       <HeaderWrapper>
         <div>
           Authorizon Assignment <div>Live Chat Application</div>
@@ -34,11 +37,8 @@ const Header = () => {
         <Avatar
           onClick={invitationAcceptation}
           style={{ marginLeft: 'auto', marginRight: '20px' }}
-          alt='Cindy Baker'
-          src={
-            user?.picture ||
-            'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60'
-          }
+          alt='Your personal Avatar'
+          src={user?.picture || DEFAULT_AVATAR_URL}
         />
       </HeaderWrapper>
       <AdminPanel>
@@ -60,7 +60,7 @@ const Header = () => {
           </>
         )}
       </AdminPanel>
-    </>
+    </header>
   );
 };
 

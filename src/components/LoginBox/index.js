@@ -14,12 +14,12 @@ const LoginBox = () => {
         src={WhoAreYou}
         alt='Person looking at you with a loupe to check who are you'
       />
-      <div>Do I know you from some where?</div>
-      <div>
+      <h1>Do I know you from some where?</h1>
+      <p>
         Already have an account? Please press the login button and proceed with
         the login process. If you don't have an account please press on the
         login button and choose "sign-up"{' '}
-      </div>
+      </p>
       <Button
         width='134px'
         height='40px'

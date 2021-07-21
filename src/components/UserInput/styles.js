@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledUserInput = styled.input`
   position: absolute;
-  font-family: Jost;
   bottom: 10px;
   right: ${props => (props.isChatInput ? '12px' : '')};
   left: ${props => (props.isChatInput ? '' : '305px')};
