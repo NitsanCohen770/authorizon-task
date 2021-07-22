@@ -12,7 +12,6 @@ export const ChatBoxWrapper = styled.div`
     margin-left: 110px;
   }
   > div:nth-child(2) {
-    font-family: Jost;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -24,7 +23,6 @@ export const ChatBoxWrapper = styled.div`
   }
 
   > div:nth-child(3) {
-    font-family: Jost;
     font-style: normal;
     font-weight: normal;
     font-size: 13px;

@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import LoginBox from './components/LoginBox';
 import ChatBox from './components/ChatBox';
 import Layout from './components/Layout';
-import './App.css';
 
 function App() {
   const { isAuthenticated } = useAuth0();
