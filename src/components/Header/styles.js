@@ -41,7 +41,7 @@ export const HeaderWrapper = styled.div`
     width: 3rem;
     height: 3rem;
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 1.25rem;
   }
 `;
 
@@ -49,15 +49,15 @@ export const AdminPanel = styled.div`
   position: absolute;
   display: inline;
   align-items: center;
-  height: 56px;
+  height: 3.5rem;
   left: 0;
   right: 0;
   top: 0;
-  top: 72px;
+  top: 4.5rem;
   background: #373f68;
   > div {
-    margin-top: 8px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-top: 0.5rem;
+    margin-right: 0.625rem;
+    margin-left: 0.625rem;
   }
 `;

@@ -33,7 +33,7 @@ export const ChatBoxWrapper = styled.div`
     margin: auto;
   }
   > div:last-child {
-    margin-left: 100px;
-    margin-top: 30px;
+    margin-left: 6.25rem;
+    margin-top: 1.875rem;
   }
 `;

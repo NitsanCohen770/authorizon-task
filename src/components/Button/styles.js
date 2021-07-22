@@ -7,13 +7,13 @@ export const StyledButton = styled.div`
   cursor: pointer;
   background-color: ${props => props.backgroundColor || '#ad1fea'};
   color: #f2f4fe;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   height: ${props => props.height};
   width: ${props => props.width};
   font-style: normal;
   font-weight: bold;
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 0.8125rem;
+  line-height: 1.1875rem;
   &:hover {
     opacity: 0.8;
   }

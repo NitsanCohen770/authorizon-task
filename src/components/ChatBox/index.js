@@ -65,7 +65,10 @@ const ChatBox = () => {
             onChange={event => setMessageText(event.target.value)}
             onFocus={() => setMessageText('')}
           />
-          <SubmitButton onClick={event => handleFormSubmission(event)} />
+          <SubmitButton
+            type='submit'
+            onClick={event => handleFormSubmission(event)}
+          />
         </form>
       </>
     </ChatBoxWrapper>

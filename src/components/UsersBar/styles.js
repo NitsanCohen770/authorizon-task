@@ -7,9 +7,9 @@ export const UsersBarWrapper = styled.div`
     #a337f6 53.09%,
     #28a7ed 100%
   );
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  height: 30px;
+  border-top-left-radius: 0.625rem;
+  border-top-right-radius: 0.625rem;
+  height: 1.875rem;
   left: 0;
   right: 0;
   top: 0;

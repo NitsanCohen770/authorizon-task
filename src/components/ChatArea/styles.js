@@ -5,10 +5,10 @@ export const ChatArea = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  top: 25px;
-  left: 15px;
-  width: 300px;
-  height: 350px;
+  top: 1.5625rem;
+  left: 0.9375rem;
+  width: 18.75rem;
+  height: 21.875rem;
   &::-webkit-scrollbar {
     display: none;
   }

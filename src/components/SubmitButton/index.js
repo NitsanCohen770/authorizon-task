@@ -1,9 +1,9 @@
 import React from 'react';
 import { SubmitButtonWrapper } from './styles';
 import { FaCaretSquareRight } from 'react-icons/fa';
-const SubmitButton = ({ ...props }) => {
+const SubmitButton = ({ type, ...props }) => {
   return (
-    <SubmitButtonWrapper {...props}>
+    <SubmitButtonWrapper type={type} {...props}>
       <FaCaretSquareRight />
     </SubmitButtonWrapper>
   );
