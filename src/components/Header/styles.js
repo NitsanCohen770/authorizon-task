@@ -14,8 +14,16 @@ export const HeaderWrapper = styled.div`
     #a337f6 53.09%,
     #28a7ed 100%
   );
-  > div:first-child {
-    display: inline;
+  > img:first-child {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }
+  > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: 24px;
     font-style: normal;
     font-weight: bold;
@@ -35,7 +43,7 @@ export const HeaderWrapper = styled.div`
     }
   }
 
-  > img {
+  > img:nth-child(3) {
     display: inline-block;
     border-radius: 50%;
     width: 3rem;

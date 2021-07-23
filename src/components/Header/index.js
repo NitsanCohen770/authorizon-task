@@ -5,6 +5,7 @@ import { Avatar } from '@material-ui/core';
 import { useAuth0 } from '@auth0/auth0-react';
 import useChat from '../../hooks/useChat';
 import { StyledUserInput } from '../UserInput';
+import Logo from '../../assets/logo.jfif';
 
 const Header = () => {
   const { user, isAuthenticated } = useAuth0();
@@ -31,9 +32,11 @@ const Header = () => {
   return (
     <header>
       <HeaderWrapper>
+        <img src={Logo} alt='authorizon logo' />
         <div>
           Authorizon Assignment <div>Live Chat Application</div>
         </div>
+
         <Avatar
           onClick={invitationAcceptation}
           style={{ marginLeft: 'auto', marginRight: '20px' }}

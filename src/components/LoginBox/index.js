@@ -21,8 +21,8 @@ const LoginBox = () => {
         login button and choose "sign-up"{' '}
       </p>
       <Button
-        width='134px'
-        height='40px'
+        width='8.375rem'
+        height='2.5rem'
         backgroundColor='#4661E6'
         onClick={() => loginWithRedirect()}>
         Login

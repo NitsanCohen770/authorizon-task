@@ -8,7 +8,6 @@ export const StyledUserInput = styled.input`
   border: 1px solid rgba(62, 39, 83, 0.0509178);
   background: #f5f3f7;
   border-radius: 1.05965rem;
-
   width: ${props => (props.isChatInput ? '90%' : '18vw')};
   height: ${props => (props.isChatInput ? '10%' : '1.875rem')};
   &:focus {
