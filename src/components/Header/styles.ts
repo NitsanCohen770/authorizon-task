@@ -24,7 +24,7 @@ export const HeaderWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 24px;
+    margin-left: 13px;
     font-style: normal;
     font-weight: bold;
     font-size: 15px;

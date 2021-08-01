@@ -1,7 +1,7 @@
 import React from 'react';
 import { UsersBarWrapper } from './styles';
 
-const UsersBar = () => {
+const UsersBar: React.FC = () => {
   return <UsersBarWrapper></UsersBarWrapper>;
 };
 

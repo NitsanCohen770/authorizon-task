@@ -7,16 +7,22 @@ import useChat from '../../hooks/useChat';
 import { StyledUserInput } from '../UserInput';
 import Logo from '../../assets/logo.jfif';
 
-const Header = () => {
+const Header: React.FC = () => {
   const { user, isAuthenticated } = useAuth0();
-  const [newFilterOrUser, setNewFilterOrUser] = useState('Filter or User');
-  const { filterMessages, inviteNewAdminUser, isAdmin, invitationAcceptation } =
-    useChat();
+  const [newFilterOrUser, setNewFilterOrUser] = useState<string>(
+    'Filter or User'
+  );
+  const {
+    filterMessages,
+    inviteNewAdminUser,
+    isAdmin,
+    invitationAcceptation,
+  } = useChat();
 
-  const DEFAULT_AVATAR_URL =
+  const DEFAULT_AVATAR_URL: string =
     'https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60';
 
-  const filterMessagesHandler = () => {
+  const filterMessagesHandler = (): void => {
     if (newFilterOrUser === '') {
       return setNewFilterOrUser('No empty strings');
     }
@@ -24,7 +30,10 @@ const Header = () => {
     setNewFilterOrUser('');
   };
 
-  const inviteAdminHandler = () => {
+  const inviteAdminHandler = (): void => {
+    if (newFilterOrUser === '') {
+      return setNewFilterOrUser('No empty strings');
+    }
     inviteNewAdminUser(newFilterOrUser);
     setNewFilterOrUser('');
   };
@@ -57,8 +66,8 @@ const Header = () => {
 
             <StyledUserInput
               value={newFilterOrUser}
-              onChange={event => setNewFilterOrUser(event.target.value)}
-              onFocus={() => setNewFilterOrUser('')}
+              onChange={(event): void => setNewFilterOrUser(event.target.value)}
+              onFocus={(): void => setNewFilterOrUser('')}
             />
           </>
         )}

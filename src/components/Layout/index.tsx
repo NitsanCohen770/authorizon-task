@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { GlobalStyles } from './globalStyles';
 import Header from '../Header';
 
-const Layout = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   return (
     <>
       <GlobalStyles />

@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import ButtonProps from '../../shared/interfaces/ButtonProps.interface';
 
-export const StyledButton = styled.div`
+export const StyledButton = styled.div<ButtonProps>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: ${props => props.backgroundColor || '#ad1fea'};
+  background-color: ${({ backgroundColor }) => backgroundColor || '#ad1fea'};
   color: #f2f4fe;
   border-radius: 0.625rem;
-  height: ${props => props.height};
-  width: ${props => props.width};
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
   font-style: normal;
   font-weight: bold;
   font-size: 0.8125rem;

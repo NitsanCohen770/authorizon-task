@@ -4,7 +4,7 @@ import { ChatBoxWrapper } from './styles';
 import WhoAreYou from '../../assets/SVG/who-are-you.svg';
 import Button from '../Button';
 
-const LoginBox = () => {
+const LoginBox: React.FC = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (

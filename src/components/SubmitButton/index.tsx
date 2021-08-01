@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { SubmitButtonWrapper } from './styles';
 import { FaCaretSquareRight } from 'react-icons/fa';
-const SubmitButton = ({ type, ...props }) => {
+
+const SubmitButton: React.FC<{ onClick: MouseEventHandler }> = ({
+  ...props
+}) => {
   return (
-    <SubmitButtonWrapper type={type} {...props}>
+    <SubmitButtonWrapper {...props}>
       <FaCaretSquareRight />
     </SubmitButtonWrapper>
   );

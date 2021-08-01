@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import PropTypes from 'prop-types';
 import { StyledButton } from './styles';
+import ButtonProps from '../../shared/interfaces/ButtonProps.interface';
 
-const Button = ({ children, width, height, backgroundColor, ...props }) => {
+const Button: React.FC<
+  ButtonProps & {
+    onClick: MouseEventHandler;
+  }
+> = ({ children, width, height, backgroundColor, ...props }) => {
   return (
     <StyledButton
       {...props}
@@ -15,10 +20,9 @@ const Button = ({ children, width, height, backgroundColor, ...props }) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string,
 };
 
 export default Button;
