@@ -1,37 +1,29 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from './Button';
+import Button from '../components/Button';
 
 export default {
-  title: 'Example/Button',
+  title: 'UI/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const Login = Template.bind({});
+Login.args = {
+  width: '8.375rem',
+  height: '2.5rem',
+  children: 'Login',
+  backgroundColor: '#4661E6',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const AdminPanel = Template.bind({});
+AdminPanel.args = {
+  width: '8.375rem',
+  height: '2.5rem',
+  children: '+ Add New Filter',
 };

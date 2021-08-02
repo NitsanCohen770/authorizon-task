@@ -76,8 +76,6 @@ const ChatBox: React.FC = () => {
   );
 };
 
-ChatBox.propTypes = {};
-
 export default withAuthenticationRequired(ChatBox, {
   onRedirecting: () => (
     <Loader

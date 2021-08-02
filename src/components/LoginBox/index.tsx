@@ -21,6 +21,7 @@ const LoginBox: React.FC = () => {
         login button and choose "sign-up"{' '}
       </p>
       <Button
+        data-testid='loginButton'
         width='8.375rem'
         height='2.5rem'
         backgroundColor='#4661E6'
