@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+## Table of contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The Architecture of the app is pretty simple and looks like this:
 
-### `yarn start`
+![](./chatArch.jpg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to run locally:
+git clone https://github.com/NitsanCohen770/authorizon-task
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm install && npm start
 
-### `yarn test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `yarn build`
+- Login with email and password using the Auth0 service.
+- See all messages of other users in realtime.
+- Admin users should be able to filter messages by choosing a filter.
+- If a message if filtered, it is only visible to the Admin user.
+- If a user uses a filtered word, he will get a message from the system informing him that the word is not allowed.
+- An Admin user can invite other users to be Admins as well.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./screenshot.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-
 
-### `yarn eject`
+### Links
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Live Site URL: [See Live](https://authorizon.netlify.app/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## My process
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The app was built with create-react-app and a node.js server running a socket.io instance.
+I used MongoDB (with mongoose) as the database.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You can have a look at the architecture of the app in the above image.
 
-## Learn More
+The front-end was built with a mobile-only view using styled-components (almost no css libraries, only used Metrial-UI for the Avatar component).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The login process is handled by the Auth0 service using they're provided hook.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It is also worth mentioning that the /chat route is a protected route which means that if a user tries to enter this route he will be automatically redirected to the login interface.
 
-### Code Splitting
+Most of the chat logic is in the "useChat" hook in the hooks directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Upon every user connection to the backend a middleware is activated to check if the user is an admin user or not and then store the users' email along with his socket session id in the database.
 
-### Analyzing the Bundle Size
+The "Admins" and "Users" are then divided to 2 socket.io rooms - Admins room and Users room (will be used of course when emitting the filtered and unfiltered messages).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I chose to filter the messages with a database query.
+I think it makes more sense to filter the messages if you are querying the database anyway to get the messages.
 
-### Making a Progressive Web App
+A user will receive a private message, informing him that he used a forbidden word, if he uses a word that is on the filter list.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You can add a new filter as an admin if you fill the input box (visible only for admins) and click Add filter button.
 
-### Advanced Configuration
+You can invite a user to be an admin if you fill his details (email) in the input box and press the Add admin button. The user invited will be notified that he has been invited and will be asked to press on his avatar and refresh the page if he agrees.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I did not use a React form for that because it seemed redundant.
 
-### Deployment
+issues:
+First issue is with the validation of the token (server side) I did find a wonderful library (socketio-jwt) that is supposed to do the job and validate the token server but it didn't work for me. I didn't want to postpone the delivery of the assignment so for now I left like that (without validation). I did leave some of the code commented out so you can check it out.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+There is another issue with storing the latest socket session id. I think it has to do with the cleanup function I am returning from the useEffect hook.
+This issue does not have a lot of impact on the functionality of the app. The only problem is that sometimes the user will not see the invitation sent from the admin (because it is sent via session id).
 
-### `yarn build` fails to minify
+### Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
+
+### What I learned
+
+It was very nice to get familiar with the Auth0 service. Integrating it to the app was a breeze thanks to the great official docs they have.
+
+Besides that It was really fun getting involved with the auth
+
+### Continued development
+
+I would like to upgrade the app the serverless using AWS services and Next.js
+
+### Useful resources
+
+- [Auth0 offical docs](https://auth0.com/docs/) - This helped me for integrating the Auth0 in the React app. I really liked the straight forward tutorials with explained examples.
+
+## Author
+
+- LinkedIn - [@Nitsan Cohen](https://www.linkedin.com/in/nitsan-cohen-64b73920b/)
+
+## Acknowledgments
+
+My wife is first for letting me sit on the computer and taking care of the children meanwhile :D
+
+I would also like to thank Authorizon staff for giving me this interesting assignment. I learned a lot from it and it improved my skills as a developer.
